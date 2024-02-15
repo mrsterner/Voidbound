@@ -1,6 +1,7 @@
 package dev.sterner.voidbound
 
 import dev.sterner.voidbound.Voidbound.MODID
+import dev.sterner.voidbound.common.creativetab.VoidboundCreativeModTab
 import dev.sterner.voidbound.registry.*
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
@@ -26,6 +27,7 @@ object Voidbound {
         BlockEntityRegistry.register(MOD_BUS)
         EntityRegistry.register(MOD_BUS)
         ParticleRegistry.register(MOD_BUS)
+        VoidboundCreativeModTab.register(MOD_BUS);
 
     }
 
