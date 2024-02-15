@@ -10,6 +10,5 @@ object ParticleEffectTypeRegistry {
     val VOID: ParticleEffectType = VoidParticleEffect("void")
 
     fun init(){
-
     }
 }

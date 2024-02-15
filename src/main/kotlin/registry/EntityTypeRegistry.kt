@@ -1,9 +1,8 @@
 package dev.sterner.voidbound.registry
 
-import com.sammy.malum.MalumMod
-import com.sammy.malum.common.entity.bolt.HexBoltEntity
 import dev.sterner.voidbound.Voidbound
 import dev.sterner.voidbound.common.entity.HandEntity
+import dev.sterner.voidbound.common.entity.VoidEntity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.MobCategory
 import net.minecraft.world.level.Level
@@ -26,6 +25,16 @@ object EntityTypeRegistry {
             .sized(0.75F, 4F)
             .clientTrackingRange(10)
             .build(Voidbound.id("hand").toString())
+    }
+
+    val VOID: RegistryObject<EntityType<VoidEntity?>> = ENTITY_TYPES.register("void"
+    ) {
+        EntityType.Builder.of({ e: EntityType<VoidEntity>, w: Level ->
+            VoidEntity(e, w)
+        }, MobCategory.CREATURE)
+            .sized(0.5F, 0.5f)
+            .clientTrackingRange(10)
+            .build(Voidbound.id("void").toString())
     }
 
     fun register(bus: IEventBus) = ENTITY_TYPES.register(bus)

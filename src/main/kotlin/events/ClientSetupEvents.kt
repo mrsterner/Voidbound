@@ -1,6 +1,7 @@
 package dev.sterner.voidbound.events
 
 import dev.sterner.voidbound.client.renderer.entity.HandEntityRenderer
+import dev.sterner.voidbound.client.renderer.entity.VoidEntityRenderer
 import dev.sterner.voidbound.registry.EntityTypeRegistry
 import dev.sterner.voidbound.registry.ParticleRegistry
 import net.minecraftforge.api.distmarker.Dist
@@ -20,5 +21,6 @@ object ClientSetupEvents {
     @SubscribeEvent
     fun registerRenderers(event: EntityRenderersEvent.RegisterRenderers) {
         event.registerEntityRenderer(EntityTypeRegistry.HAND.get(), ::HandEntityRenderer)
+        event.registerEntityRenderer(EntityTypeRegistry.VOID.get(), ::VoidEntityRenderer)
     }
 }
