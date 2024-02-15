@@ -1,5 +1,7 @@
 package dev.sterner.voidbound.common.entity
 
+import com.sammy.malum.visual_effects.networked.data.PositionEffectData
+import dev.sterner.voidbound.registry.ParticleEffectTypeRegistry
 import mod.azure.azurelib.animatable.GeoEntity
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache
 import mod.azure.azurelib.core.animation.AnimatableManager.ControllerRegistrar
@@ -9,6 +11,7 @@ import mod.azure.azurelib.core.animation.AnimationState
 import mod.azure.azurelib.core.animation.RawAnimation
 import mod.azure.azurelib.core.`object`.PlayState
 import mod.azure.azurelib.util.AzureLibUtil
+import net.minecraft.client.multiplayer.ClientLevel
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.syncher.EntityDataAccessor
 import net.minecraft.network.syncher.EntityDataSerializers
@@ -56,6 +59,7 @@ class HandEntity(pEntityType: EntityType<out Mob>, level: Level) : Mob(pEntityTy
         if (this.getSpawnTimer() > 0) {
             this.setSpawnTimer(getSpawnTimer() - 1)
         }
+
         super.tick()
     }
 

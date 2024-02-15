@@ -5,6 +5,4 @@ import dev.sterner.voidbound.common.entity.HandEntity
 import mod.azure.azurelib.renderer.GeoEntityRenderer
 import net.minecraft.client.renderer.entity.EntityRendererProvider
 
-class HandEntityRenderer(renderManager: EntityRendererProvider.Context?) : GeoEntityRenderer<HandEntity>(renderManager, HandEntityModel()) {
-
-}
+class HandEntityRenderer(renderManager: EntityRendererProvider.Context?) : GeoEntityRenderer<HandEntity>(renderManager, HandEntityModel())

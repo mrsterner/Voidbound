@@ -3,6 +3,7 @@ package dev.sterner.voidbound.common.creativetab
 import com.sammy.malum.MalumMod
 import dev.sterner.voidbound.Voidbound
 import dev.sterner.voidbound.Voidbound.MODID
+import dev.sterner.voidbound.registry.ItemRegistry
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.CreativeModeTab
@@ -22,8 +23,8 @@ object VoidboundCreativeModTab {
 
     @SubscribeEvent
     fun buildContents(event: BuildCreativeModeTabContentsEvent) {
-        if (event.tabKey == ResourceLocation(MODID, MODID)) {
-
+        if (event.tab == CREATIVE_MODE_TABS) {
+            event.accept(ItemRegistry.ALL_BLACK)
         }
     }
 
