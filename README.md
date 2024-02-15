@@ -19,9 +19,9 @@
 ## ⚙️ Features ⚙️
 
 - Initialization
-    - [Item](./src/main/kotlin/init/ItemRegistry.kt),
-      [Block](./src/main/kotlin/init/BlockRegistry.kt) -
-      [BlockItem](./src/main/kotlin/init/BlockItemRegistry.kt)
+    - [Item](./src/main/kotlin/registry/ItemRegistry.kt),
+      [Block](./src/main/kotlin/registry/BlockRegistry.kt) -
+      [BlockItem](./src/main/kotlin/registry/BlockItemRegistry.kt)
 - Examples
     - [Example Item](./src/main/kotlin/items/SadObsidianMaker.kt)
     - [Example Block](./src/main/kotlin/blocks/ExampleBlock.kt)

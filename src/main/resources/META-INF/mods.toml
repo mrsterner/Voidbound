@@ -3,11 +3,11 @@ loaderVersion = "[4,)"
 license = "MIT"
 
 [[mods]]
-modId = "examplemod"
+modId = "voidbound"
 version = "${file.jarVersion}"
-displayName = "examplemod"
-logoFile = "examplemod.png"
-authors = "PleahMaCaka"
+displayName = "Voidbound"
+logoFile = "voidbound.png"
+authors = "mrsterner"
 description = '''
 Forge Template with ParchmentMC, KotlinForForge and Mixin
 '''

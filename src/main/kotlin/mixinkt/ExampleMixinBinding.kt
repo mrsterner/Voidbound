@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.mixinkt
+package dev.sterner.voidbound.mixinkt
 
 //import net.minecraft.client.main.GameConfig
 //import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
