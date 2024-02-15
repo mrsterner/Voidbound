@@ -3,6 +3,7 @@ package dev.sterner.voidbound
 import dev.sterner.voidbound.Voidbound.MODID
 import dev.sterner.voidbound.common.creativetab.VoidboundCreativeModTab
 import dev.sterner.voidbound.registry.*
+import net.minecraft.resources.ResourceLocation
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
 import org.apache.logging.log4j.Level
@@ -25,15 +26,20 @@ object Voidbound {
         ItemRegistry.register(MOD_BUS)
         BlockRegistry.register(MOD_BUS)
         BlockEntityRegistry.register(MOD_BUS)
-        EntityRegistry.register(MOD_BUS)
+        EntityTypeRegistry.register(MOD_BUS)
         ParticleRegistry.register(MOD_BUS)
-        VoidboundCreativeModTab.register(MOD_BUS);
+        VoidboundCreativeModTab.register(MOD_BUS)
 
+        ParticleEffectTypeRegistry.init()
     }
 
     @Suppress("UNUSED_PARAMETER")
     private fun onClientSetup(event: FMLClientSetupEvent) {
         LOGGER.log(Level.INFO, "Initializing client... with voidbound!")
 
+    }
+
+    fun id(name: String): ResourceLocation {
+        return ResourceLocation(MODID, name)
     }
 }

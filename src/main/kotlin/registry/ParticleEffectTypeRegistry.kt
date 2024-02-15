@@ -7,7 +7,9 @@ import dev.sterner.voidbound.visual_effects.networked.VoidParticleEffect
 
 object ParticleEffectTypeRegistry {
 
-    val EFFECT_TYPES: Map<String, ParticleEffectType> = LinkedHashMap()
-
     val VOID: ParticleEffectType = VoidParticleEffect("void")
+
+    fun init(){
+
+    }
 }

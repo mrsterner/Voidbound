@@ -48,6 +48,7 @@ val lodestoneVersion: String by extra
 val jeiVersion: String by extra
 val curiosVersion: String by extra
 val malumVersion: String by extra
+val azureLibVersion: String by extra
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
@@ -141,6 +142,9 @@ repositories {
             includeGroup("curse.maven")
         }
     }
+    maven {
+        url = uri("https://libs.azuredoom.com:4443/mods")
+    }
 }
 
 fun getProperty(name: String): String {
@@ -161,6 +165,8 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${minecraftVersion}-forge-api:${jeiVersion}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraftVersion}-forge:${jeiVersion}"))
+
+    implementation(fg.deobf("mod.azure.azurelib:azurelib-forge-${minecraftVersion}:${azureLibVersion}"))
 }
 
 val Project.mixin: MixinExtension

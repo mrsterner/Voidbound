@@ -1,7 +1,10 @@
 package dev.sterner.voidbound.events
 
+import dev.sterner.voidbound.client.renderer.entity.HandEntityRenderer
+import dev.sterner.voidbound.registry.EntityTypeRegistry
 import dev.sterner.voidbound.registry.ParticleRegistry
 import net.minecraftforge.api.distmarker.Dist
+import net.minecraftforge.client.event.EntityRenderersEvent
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent
 import net.minecraftforge.eventbus.api.SubscribeEvent
 import net.minecraftforge.fml.common.Mod
@@ -12,5 +15,10 @@ object ClientSetupEvents {
     @SubscribeEvent
     fun registerParticleFactory(event: RegisterParticleProvidersEvent) {
         ParticleRegistry.registerParticleFactory(event)
+    }
+
+    @SubscribeEvent
+    fun registerRenderers(event: EntityRenderersEvent.RegisterRenderers) {
+        event.registerEntityRenderer(EntityTypeRegistry.HAND.get(), ::HandEntityRenderer)
     }
 }
