@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.void.idle": {
+		"idle": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {
@@ -141,7 +141,7 @@
 				}
 			}
 		},
-		"animation.void.fly": {
+		"fly": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {

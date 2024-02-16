@@ -1,5 +1,8 @@
 package dev.sterner.voidbound.common.entity
 
+import com.sammy.malum.registry.common.SpiritTypeRegistry
+import com.sammy.malum.visual_effects.networked.SapCollectionParticleEffect
+import com.sammy.malum.visual_effects.networked.data.ColorEffectData
 import com.sammy.malum.visual_effects.networked.data.PositionEffectData
 import dev.sterner.voidbound.registry.ParticleEffectTypeRegistry
 import mod.azure.azurelib.animatable.GeoEntity
@@ -11,7 +14,6 @@ import mod.azure.azurelib.core.animation.AnimationState
 import mod.azure.azurelib.core.animation.RawAnimation
 import mod.azure.azurelib.core.`object`.PlayState
 import mod.azure.azurelib.util.AzureLibUtil
-import net.minecraft.client.multiplayer.ClientLevel
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.syncher.EntityDataAccessor
 import net.minecraft.network.syncher.EntityDataSerializers
@@ -61,6 +63,13 @@ class HandEntity(pEntityType: EntityType<out Mob>, level: Level) : Mob(pEntityTy
         }
 
         super.tick()
+        if (!level().isClientSide) {
+
+            ParticleEffectTypeRegistry.VOID.createPositionedEffect(level(),
+                PositionEffectData(position()),
+                ColorEffectData(SpiritTypeRegistry.INFERNAL_SPIRIT.primaryColor))
+            //ParticleEffectTypeRegistry.VOID.createPositionedEffect(level(), PositionEffectData(position()))
+        }
     }
 
     override fun aiStep() {

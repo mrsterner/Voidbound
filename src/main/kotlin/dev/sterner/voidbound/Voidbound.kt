@@ -31,11 +31,13 @@ object Voidbound {
         VoidboundCreativeModTab.register(MOD_BUS)
 
         ParticleEffectTypeRegistry.init()
+        MOD_BUS.addListener(PacketRegistry::registerNetworkStuff)
+
     }
 
     @Suppress("UNUSED_PARAMETER")
     private fun onClientSetup(event: FMLClientSetupEvent) {
-        LOGGER.log(Level.INFO, "Initializing client... with voidbound!")
+        Voidbound.LOGGER.log(Level.INFO, "Initializing client... with voidbound!")
 
     }
 

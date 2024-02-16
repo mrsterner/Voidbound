@@ -1,6 +1,5 @@
 package dev.sterner.voidbound.common.creativetab
 
-import com.sammy.malum.MalumMod
 import dev.sterner.voidbound.Voidbound
 import dev.sterner.voidbound.Voidbound.MODID
 import dev.sterner.voidbound.registry.ItemRegistry

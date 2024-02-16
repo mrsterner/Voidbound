@@ -1,7 +1,6 @@
 package dev.sterner.voidbound.client.model.entity
 
 import dev.sterner.voidbound.Voidbound
-import dev.sterner.voidbound.common.entity.HandEntity
 import dev.sterner.voidbound.common.entity.VoidEntity
 import mod.azure.azurelib.model.GeoModel
 import net.minecraft.resources.ResourceLocation
