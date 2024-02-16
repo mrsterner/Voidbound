@@ -9,7 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries
 
 object ParticleRegistry {
 
-    var PARTICLES: DeferredRegister<ParticleType<*>> = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, Voidbound.MODID);
+    private var PARTICLES: DeferredRegister<ParticleType<*>> = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, Voidbound.MODID);
     fun register(bus: IEventBus) = PARTICLES.register(bus)
 
     fun registerParticleFactory(event: RegisterParticleProvidersEvent) {

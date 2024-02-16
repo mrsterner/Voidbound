@@ -13,20 +13,24 @@ import it.unimi.dsi.fastutil.ints.IntList
 import net.minecraft.client.Minecraft
 import net.minecraft.client.model.PlayerModel
 import net.minecraft.client.model.VillagerModel
+import net.minecraft.client.model.geom.EntityModelSet
 import net.minecraft.client.model.geom.ModelLayers
 import net.minecraft.client.model.geom.ModelPart
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer
 import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.RenderType
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider
 import net.minecraft.client.renderer.texture.DynamicTexture
 import net.minecraft.client.renderer.texture.HttpTexture
-import net.minecraft.client.renderer.texture.TextureManager
 import net.minecraft.client.resources.DefaultPlayerSkin
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.util.FastColor
 import net.minecraft.world.entity.npc.Villager
 import net.minecraft.world.entity.player.Player
+import net.minecraft.world.item.ItemDisplayContext
+import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import java.io.File
 import java.io.FileInputStream
@@ -171,19 +175,17 @@ class EffigyBlockEntityRenderer(ctx: BlockEntityRendererProvider.Context) : Bloc
         ) { _: Any?, woodTexture: WoodTexture? ->
             if (woodTexture == null) {
                 val minecraftClient: Minecraft = Minecraft.getInstance()
-                val map: Map<MinecraftProfileTexture.Type, MinecraftProfileTexture> =
-                    minecraftClient.skinManager.getInsecureSkinInformation(profile)
+                val map = minecraftClient.skinManager.getInsecureSkinInformation(profile)
                 if (map.containsKey(MinecraftProfileTexture.Type.SKIN)) {
                     try {
+                        val skin = MinecraftProfileTexture.Type.SKIN
                         return@compute WoodTexture(minecraftClient.skinManager
-                            .registerTexture(map[MinecraftProfileTexture.Type.SKIN]!!, MinecraftProfileTexture.Type.SKIN),
-                            true)
+                            .registerTexture(map[skin]!!, skin), true)
                     } catch (e: NullPointerException) {
                         return@compute defaultTexture
                     }
                 } else {
-                    return@compute WoodTexture(DefaultPlayerSkin.getDefaultSkin(profile.id),
-                        false)
+                    return@compute WoodTexture(DefaultPlayerSkin.getDefaultSkin(profile.id), false)
                 }
             } else {
                 if (woodTexture.needsUpdate) {
@@ -248,6 +250,17 @@ class EffigyBlockEntityRenderer(ctx: BlockEntityRendererProvider.Context) : Bloc
             val file: File = skinTexture.file!!
 
             return skinTexture.processLegacySkin(NativeImage.read(FileInputStream(file)))!!
+        }
+    }
+
+    class BuiltinItemStatueRenderer(dispatcher: BlockEntityRenderDispatcher, modelSet: EntityModelSet) : BlockEntityWithoutLevelRenderer(dispatcher, modelSet) {
+        override fun renderByItem(pStack: ItemStack,
+                                  pDisplayContext: ItemDisplayContext,
+                                  pPoseStack: PoseStack,
+                                  pBuffer: MultiBufferSource,
+                                  pPackedLight: Int,
+                                  pPackedOverlay: Int) {
+
         }
     }
 }

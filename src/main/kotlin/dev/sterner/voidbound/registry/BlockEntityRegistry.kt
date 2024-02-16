@@ -18,13 +18,13 @@ object BlockEntityRegistry {
     private val BLOCK_ENTITY_TYPES: DeferredRegister<BlockEntityType<*>> = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID)
 
     val EFFIGY: RegistryObject<BlockEntityType<EffigyBlockEntity>> =
-        BLOCK_ENTITY_TYPES.register("effigy",
-            Supplier {
-                BlockEntityType.Builder.of({ pos: BlockPos?, state: BlockState? ->
-                    EffigyBlockEntity(pos,
-                        state)
-                }, BlockRegistry.EFFIGY.get()).build(null)
-            })
+        BLOCK_ENTITY_TYPES.register("effigy"
+        ) {
+            BlockEntityType.Builder.of({ pos: BlockPos?, state: BlockState? ->
+                EffigyBlockEntity(pos,
+                    state)
+            }, BlockRegistry.EFFIGY.get()).build(null)
+        }
 
 
     fun register(bus: IEventBus) = BLOCK_ENTITY_TYPES.register(bus)

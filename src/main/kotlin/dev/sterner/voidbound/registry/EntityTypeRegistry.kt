@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject
 
 
 object EntityTypeRegistry {
-    val ENTITY_TYPES: DeferredRegister<EntityType<*>> =
+    private val ENTITY_TYPES: DeferredRegister<EntityType<*>> =
         DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Voidbound.MODID)
 
 

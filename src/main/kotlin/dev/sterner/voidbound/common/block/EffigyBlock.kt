@@ -80,7 +80,7 @@ class EffigyBlock(properties: Properties) : LodestoneEntityBlock<EffigyBlockEnti
     }
 
     override fun getStateForPlacement(context: BlockPlaceContext): BlockState {
-        val state = this.defaultBlockState().setValue(BlockStateProperties.ROTATION_16, Mth.abs(Mth.floor( (context.rotation * 16.0F / 360.0F) + 0.5)))
+        val state = this.defaultBlockState().setValue(BlockStateProperties.ROTATION_16, Mth.floor( (context.rotation * 16.0F / 360.0F) + 0.5) % 15)
 
         if (state.hasProperty(BlockStateProperties.WATERLOGGED)) {
             val fluidState = context.level.getFluidState(context.clickedPos);
